@@ -1,7 +1,10 @@
 # Changelog
 
-## v0.0.12 (2022-03-07)
+## vO.O.13 (2023-10-24)
 - Add support for array fields
+
+## v0.0.12 (2023-02-02)
+- Update dependencies
 
 ## v0.0.11 (2021-08-12)
 - Update dependencies
