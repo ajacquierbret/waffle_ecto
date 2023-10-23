@@ -115,8 +115,19 @@ defmodule Waffle.Ecto.Schema do
     {upload, scope}
   end
 
-   # Allow casting binary data structs
-  def apply_scope(%{filename: filename, binary: binary} = upload, scope, _options) when is_binary(filename) and is_binary(binary) do
+  # Allow casting existing uploads for update operations
+  def apply_scope(
+        %{file_name: file_name, updated_at: %NaiveDateTime{}} = upload,
+        _scope,
+        _options
+      )
+      when is_binary(file_name) do
+    upload
+  end
+
+  # Allow casting binary data structs
+  def apply_scope(%{file_name: file_name, binary: binary} = upload, scope, _options)
+      when is_binary(file_name) and is_binary(binary) do
     {upload, scope}
   end
 
